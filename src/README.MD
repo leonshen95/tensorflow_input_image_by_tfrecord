@@ -7,6 +7,8 @@
 
 - This App supports for real-time camera image classification. It is built on previous project: [Tengine APP](https://github.com/OAID/Tengine-app/tree/master/android/classification)
 
+- The App processes the real time image camera preview and gives the predict results.
+
 
 ## Installation and Instruction
  
