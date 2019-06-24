@@ -29,15 +29,16 @@ adb push frozen_mobilenet_v1_224.pb /data/local/tmp/
 adb push synset_words.txt /data/local/tmp/
 ```
 
-- Make sure the model and labels are in the phone.
+- Make sure the model and corresponding labels are in the phone.
 
 ```
 adb shell ls /data/local/tmp
 ```
 
-- Go to Android Studio, sync and build the project. 
+- Go to Android Studio, sync and build/run the project. 
+<img src ="https://github.com/OAID/Tengine-app/blob/master/android/classification/app/src/asset/Sync.png">
 
-- Run the project and make sure the App is given permission of using camera and SD card from your phone.
+- Also, make sure the App is given permission of using camera and SD card from your phone.
 
 ## For using other models
 
