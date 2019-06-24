@@ -3,6 +3,7 @@
 
 ## Preface
 
+<img src= "https://github.com/leonshen95/tensorflow_input_image_by_tfrecord/blob/master/src/demo.gif" height="30%" width="30%">
 - In this project, we use Tengine to run the TensorFlow Mobilenet.v1 model to predict image.
 
 - This App supports for real-time camera image classification. It is built on previous project: [Tengine APP](https://github.com/OAID/Tengine-app/tree/master/android/classification)
