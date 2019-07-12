@@ -51,3 +51,5 @@ adb shell ls /data/local/tmp
 ### Show inference time
 
 ### Ability to use Float (default) and Quantized model
+
+If you compile tengine yourself, make sure your protobuf version is exactly 3.0.0 otherwise you will see errors when you make file.
