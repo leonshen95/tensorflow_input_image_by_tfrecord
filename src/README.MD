@@ -3,7 +3,7 @@
 ## Preface
 - This app is built based on [Tengine](https://github.com/OAID), developed by OPEN AI LAB, which is a lite, high-performance, and modular inference engine for embedded device.  The app is the product of machine learning and deep neural networks, and includes the content to help users define the object in front of them. Thus, it is general enough to be applicable in wide variety for future expansion.
 
-- In this project, we use Tengine to run the TensorFlow Mobilenet.v1 model to predict image.
+- In this project, we use Tengine to run the pretrained model to predict image.
 
 - This App supports for real-time camera image classification. 
 
