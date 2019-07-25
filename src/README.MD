@@ -59,5 +59,3 @@ You may need to edit the model and its label based on your preference.
 - If for some reason, you want to build your own Tengine library, it is ok. Please follow [Android build](https://github.com/OAID/Tengine/blob/master/doc/build_android.md). You can change the configure setting in CMakelist. 
 
 - If you compile tengine yourself, make sure your protobuf version is exactly 3.0.0 otherwise you will see errors when you make file.
-
-## DEMO
