@@ -1,4 +1,3 @@
-
 # Tengine - RealTime Image Classification
 
 ## Preface
@@ -20,16 +19,19 @@
 
 - Make sure your devices are based on Armv8.
 - You need to push your model by using adb. You should find it if you already installed Android Studio. It is located under Android\Sdk\platform-tools (Linux) and \AppData\Local\Android\Sdk\platform-tools(Windows). If you have not installed yet, use
+
 For Linux:
 ```
 sudo apt-get install android-tools-adb
 ```
 For Windows:
-If you already have Android SDK, it is under directory \sdk\platform-tools. Or download SDK here: http://developer.android.com/sdk/index.html 
-Find the adb and add it to your system environment variable. Then you can use adb command in terminal.
+- If you already have Android SDK, it is under directory \sdk\platform-tools. Or download SDK here: http://developer.android.com/sdk/index.html 
+- Find the adb and add it to your system environment variable. Then you can use adb command in terminal.
 
-Use adb –version to make sure it is installed correctly.
+- Use adb –version to make sure it is installed correctly.
+
 Under the app/src/main/assets folder, place the .so libraries into app/src/main/JniLibs/arm64-v8a.
+
 Use adb to push your model and label file in your file.
 ```
 adb push your-model-name /data/local/tmp
@@ -42,6 +44,7 @@ adb push mobilenet.caffemodel mobilenet_deploy.prototx synset_words /data/local/
 <img src ="https://github.com/OAID/Tengine-app/blob/master/android/classification/app/src/asset/Sync.png">
 
 - Also, make sure the App is given permission of using camera and SD card from your phone.
+
 ### Optional
 - You can see all the supported models here: [Tengine model zoo](https://pan.baidu.com/s/1LXZ8vOdyOo50IXS0CUPp8g#list/path=%2F) (psw:57vb)
 You may need to edit the model and its label based on your preference.
@@ -53,6 +56,8 @@ You may need to edit the model and its label based on your preference.
  
 
 ## Build your own library 
-- If for some reason, you want to build your own Tengine library, it is ok. Please follow Android build. You can change the configure setting in CMakelist. 
+- If for some reason, you want to build your own Tengine library, it is ok. Please follow [Android build](https://github.com/OAID/Tengine/blob/master/doc/build_android.md). You can change the configure setting in CMakelist. 
 
 - If you compile tengine yourself, make sure your protobuf version is exactly 3.0.0 otherwise you will see errors when you make file.
+
+## DEMO
