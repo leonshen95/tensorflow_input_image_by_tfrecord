@@ -49,7 +49,7 @@ You may need to edit the model and its label based on your preference.
  
 
 - You need to change the corresponding model input and output. 
-e. g: In the following case, the input is 300 * 300 for int8 TFLite model. And dimension is {1, 300, 300, 3}. If you want to change model to MobileNet SSD Caffe model, the size then needs to be 224*224. And dimension will be changed to {1, 3, 224, 224}. (Hint: Make sure you change all the code mentioning size and dimension in Tengine-Wrapper. The following snapshot is only for reference)
+- e. g: In the following case, the input is 300 * 300 for int8 TFLite model. And dimension is {1, 300, 300, 3}. If you want to change model to MobileNet SSD Caffe model, the size then needs to be 224*224. And dimension will be changed to {1, 3, 224, 224}. (Hint: Make sure you change all the code mentioning size and dimension in Tengine-Wrapper. The following snapshot is only for reference)
  
 
 ## Build your own library 
