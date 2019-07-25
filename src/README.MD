@@ -1,12 +1,12 @@
 
-# Tengine APP - Image Classification
+# Tengine - RealTime Image Classification
 
 ## Preface
+- This app is built based on [Tengine](https://github.com/OAID), developed by OPEN AI LAB, which is a lite, high-performance, and modular inference engine for embedded device.  The app is the product of machine learning and deep neural networks, and includes the content to help users define the object in front of them. Thus, it is general enough to be applicable in wide variety for future expansion.
 
-<img src= "https://github.com/leonshen95/tensorflow_input_image_by_tfrecord/blob/master/src/demo.gif" height="30%" width="30%">
 - In this project, we use Tengine to run the TensorFlow Mobilenet.v1 model to predict image.
 
-- This App supports for real-time camera image classification. It is built on previous project: [Tengine APP](https://github.com/OAID/Tengine-app/tree/master/android/classification)
+- This App supports for real-time camera image classification. 
 
 - The App processes the real time image camera preview and gives the predict results.
 
@@ -14,42 +14,45 @@
 ## Installation and Instruction
  
 
-- You can use Android Studio to install and test the project. Make sure your test devices are based on Armv8.
+- Install the Android Studio, go to [Download](https://developer.android.google.cn/studio/). During installation, install the recommend tools and package as much as possible except the cloud ones. 
 
 - You need to install adb in your library. After installation. You can always use the following command to see the list of your phone or emulator available for test. 
 
+- Make sure your devices are based on Armv8.
+- You need to push your model by using adb. You should find it if you already installed Android Studio. It is located under Android\Sdk\platform-tools (Linux) and \AppData\Local\Android\Sdk\platform-tools(Windows). If you have not installed yet, use
+For Linux:
 ```
-adb advices
+sudo apt-get install android-tools-adb
 ```
+For Windows:
+If you already have Android SDK, it is under directory \sdk\platform-tools. Or download SDK here: http://developer.android.com/sdk/index.html 
+Find the adb and add it to your system environment variable. Then you can use adb command in terminal.
 
-- Then push frozen_mobilenet_v1_224.pb and synset_words.txt in your phone.
-
+Use adb –version to make sure it is installed correctly.
+Under the app/src/main/assets folder, place the .so libraries into app/src/main/JniLibs/arm64-v8a.
+Use adb to push your model and label file in your file.
 ```
-adb push frozen_mobilenet_v1_224.pb /data/local/tmp/
-adb push synset_words.txt /data/local/tmp/
+adb push your-model-name /data/local/tmp
 ```
-
-- Make sure the model and corresponding labels are in the phone.
-
+In my case,
 ```
-adb shell ls /data/local/tmp
+adb push mobilenet.caffemodel mobilenet_deploy.prototx synset_words /data/local/tmp
 ```
-
 - Go to Android Studio, sync and build/run the project. 
 <img src ="https://github.com/OAID/Tengine-app/blob/master/android/classification/app/src/asset/Sync.png">
 
 - Also, make sure the App is given permission of using camera and SD card from your phone.
+### Optional
+- You can see all the supported models here: [Tengine model zoo](https://pan.baidu.com/s/1LXZ8vOdyOo50IXS0CUPp8g#list/path=%2F) (psw:57vb)
+You may need to edit the model and its label based on your preference.
+ 
+ 
 
-## For using other models
+- You need to change the corresponding model input and output. 
+e. g: In the following case, the input is 300 * 300 for int8 TFLite model. And dimension is {1, 300, 300, 3}. If you want to change model to MobileNet SSD Caffe model, the size then needs to be 224*224. And dimension will be changed to {1, 3, 224, 224}. (Hint: Make sure you change all the code mentioning size and dimension in Tengine-Wrapper. The following snapshot is only for reference)
+ 
 
-## Features and Demo
+## Build your own library 
+- If for some reason, you want to build your own Tengine library, it is ok. Please follow Android build. You can change the configure setting in CMakelist. 
 
-### Adjust the number of CPUs to run (default using 4 CPUs)
-
-### Ability to switch between CPU (default) and GPU
-
-### Show inference time
-
-### Ability to use Float (default) and Quantized model
-
-If you compile tengine yourself, make sure your protobuf version is exactly 3.0.0 otherwise you will see errors when you make file.
+- If you compile tengine yourself, make sure your protobuf version is exactly 3.0.0 otherwise you will see errors when you make file.
